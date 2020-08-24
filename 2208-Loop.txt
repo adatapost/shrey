@@ -1,0 +1,171 @@
+Loop Or Iterative Statements
+=====================================
+
+
+To repeat "something" loop statements are used.
+
+Three loop statements namely for, while and do while are used to repeat "something" but they has different syntax.
+
+1. for(initialization; boolean-expression; increment/decr-or-arithmetic-operations) 
+   {
+      // for body
+   }
+
+2. while(boolean-expression)
+   {
+       //while body
+   }
+3. do
+   {
+      //do while body
+   }while(boolean-expression); <--- This loop must be terminated with ;
+
+1. for loop has three clauses and all three are optional. e.g for(;;) { } --in this case this loop will become infinite because default boolean expression value is true.
+
+Example: Program to print "Hello" 5 times.
+
+main()
+{
+   int a;
+   for(a=1;a<=5;a++)
+   {
+     printf("\nHello");
+    }
+
+   for(a=11;a<=15;a++)
+    {
+      printf("\nHello India!");
+     }
+  
+   for(a=-10;a>=-6;a--)
+    {
+      printf("\nHi!");
+     }
+ }
+
+Example:
+
+ int a;
+ for(a=-10;a<=-6;a++)
+ {
+   printf("\nHi");
+  }
+
+Dry Run
+---------
+a	a<=-6
+-10	true	Hi
+-9	true	Hi
+-8	true	Hi
+-7	true	Hi
+-6	true	Hi
+-5	false
+
+Example: What will be the output?
+
+ int a=5;
+ for(;a;)
+  {
+    printf("\nHi");
+    a--;
+   }
+
+Example: What will be the output?  (1+2+3+4+5=15)
+
+ int a=1,s=0;
+ for(;a<=5;a++)
+   {
+     s+=a;  / s=s+a;
+    }
+ printf("\n%d",s);
+
+a	s	a<=5
+1	0	true  
+2	1	true
+3	3	true
+4	6	true
+5	10	true	
+6	15	false
+
+Example: 
+
+int a=5,s=0;
+while(a>=1)
+{
+  s=s+a;
+  a--;
+}
+printf("\n%d",s);
+
+Example: 
+
+int a=5,s=1;
+do
+{
+  s=s*a;
+  a--;
+}while(a>=1);  // or while(a);
+printf("\n%d",s);
+
+Example:
+
+int a,f;
+for(a=1,f=1;a<=5;f=f*a,a++)   // or for(a=1,f=1;a<=5;f=f*a,a++); ZERO Body
+{
+}  
+
+printf("\n%d",f);
+
+Example: Calculate sum of all numbers between 1 to 100 which are divide by 3 and 7.
+
+Example: Sum of 1 + 3 + 5 + 7 + 9 ..N  (sum of odd numbers between 1 to N)
+
+Example: Print 1 2 3 4 5 6 ... N
+Example: Print 10 9 8 .. 1
+Example: Print 2 4 6 8 10 ... N
+Example: Input a number and calculate factorial.
+	e.g no = 5 = 5 x 4 x 3 x 2 x 1
+                                                            3
+Example: Input base and raise to calculate the power. e.g  3   = 3 x 3 x 3 = 27
+
+double power = 1;
+
+if(raise>0)
+{
+  while(raise>0)
+  {
+    power = power * base;
+    raise--;
+  }
+}
+else
+{
+  while(raise<0)
+  {
+    power = power / base;
+    raise++;
+  }
+}
+
+printf("\nPower : %lf",power);
+
+Example: We've integer value. Write code to separate each digit and print it.
+
+e.g  number is 5632 then print each digit  2  3  6  5
+
+Hint:
+
+int r;
+while(num>0)
+{
+  r = num % 10;  
+  num = num / 10;
+  printf("\n%d",r);
+}
+
+num	num>0	 r	
+342	true	2
+34	true	4
+3	true	3
+0	false
+

@@ -1,0 +1,283 @@
+Jumping & Branching Statements -- if, switch and goto statements
+=========================================================================
+With help of "Jumping/Branching" statements, we can execute "selective" code based upon the choices or criteria (conditions).
+
+In C, we've two conditional statements - if & switch whereas the 'goto' is unconditional statement.
+
+The if statement
+----------------
+Syntax: 
+
+1. simple if
+   if(condition)
+   {
+     if body....
+   }
+
+2. if else statement
+   if(condition)
+   {
+     if body....
+   }
+  else
+   {
+     else body...
+   }
+3. if..else if lader style (multiple criteria)
+
+  if(expr)
+  {
+    //statement
+  }
+  else
+  if(expr)
+  {
+    //statement
+  }
+  else
+  if(expr)
+  {
+   //statement 
+  }
+  ...
+4. nested if -- if inside another if
+
+  if(expr)
+   {
+     if(expr)
+      {
+        //
+      }
+  else
+   {
+      if(expr) { }
+    } 
+
+Note that the if(expr) must be a boolean -- true(non zero) or false(0)
+
+Example: Curly braces are not mentioned in if or else body then the statement followed by if or else will become a body of if or else.
+
+main()
+{
+   int a = 2, b = 1;
+
+   if(a > 5)
+     a = a + 10;   <---- the only statement becomes a body
+     b = b + 20;
+     printf("\n%d   %d",a,b); // 2  21
+
+   a = 2; b = 1;
+   if(a > 5)
+   {
+     a = a + 10;
+     b = b + 20;
+     printf("\n%d   %d",a,b); 
+    }
+}
+  
+Example: Input age and display "You're voter" if age is above 17
+
+main()
+{
+  int age;
+  printf("Enter the age : ");
+  scanf("%d",&age);
+
+  if(age>17)
+     printf("\nYou're voter");
+}
+
+Edit:  if(age>17)
+         {
+           printf("\nYou're voter");
+          }
+
+Edit:  if(age>17) printf("\nYou're voter");
+
+Edit: Display "You're minor" otherwise,
+
+    if(age>17)
+        printf("\nYou're voter");
+    else
+        printf("\nYou're minor");
+
+Example: Input number and display it is "POSITIVE", "NEGATIVE" or "ZERO"
+
+if(no==0)
+   printf("\nZERO");
+else
+if(no>0)
+   printf("\nPOSITIVE");
+else
+   printf("\nNEGATIVE");
+
+Example: Input two numbers and find the maximum & minimum among them.
+
+int no1,no2,max,min;
+
+printf("Enter two numbers : ");
+scanf("%d%d",&no1,&no2);
+
+if(no1>no2)
+{
+  max = no1;
+  min = no2;
+}
+else
+{
+  max = no2;
+  min = no1;
+}
+
+printf("\nMaximum : %d\nMinimum : %d", max,min);
+
+
+Example: Input three numbers and find the maximum & minimum among them.
+Example: Input a char and test whether it is digit or not?
+Example: Input a char and test whether it is alphabet or not?
+Example: Input a char and test whether it is whitespace or not?
+
+Example: Input day, month, and year. Write code to test a given date is valid or not
+	e.g  31  4  2020  - Invalid
+	     29  2  2019  - Invalid
+             19  9  2020  - Valid
+
+Example: Input valid day, month, and year. Write code to calculate next date
+	e.g  5 1  2020 => 6 1 2020 
+            31 12 2020 => 1 1 2021
+            29 2  2020 => 1 3 2020
+Example: Input valid day, month, year. Write code to calculate previous date
+	e.g. 1 1 1993 => 31 12 1992 
+             1 3 1993 => 28 2 1993
+
+Example: Input three numbers and find the second maximum and second mininum.
+
+The switch statement
+---------------------
+
+Syntax:
+
+  switch(char_or_int_expression)
+   {
+     case label11: 
+		 statements.....
+     case label2: 
+		 statements.....
+     default:    // Else case or otherwise
+		 statements.....
+     case label4: 
+		 statements.....
+   }
+
+switch examines the "char_or_int_expression (generally variable)" and prepare to jump at "label" given in "case label:" syntax. 
+
+Note that the case label order has no significance.
+
+If none of the cases are matched then "default" label will be selected if eixsts. The default: label is optional.
+
+Example: Input day number and print corresponding day name
+
+int main()
+{
+  int day;
+  
+  printf("Enter day number (1 to 7) : ");
+  scanf("%d",&day);
+
+  switch(day)
+  {
+    case 7: printf("\nSunday");
+    default: printf("\nInvalid");
+    case 1: printf("\nMonday");
+    case 6: printf("\nSaturday");
+    case 2: printf("\nTuesday");
+    case 3: printf("\nWednesday");
+    case 4: 
+            printf("\nThrusday");
+    case 5: 
+            printf("\nFriday");
+   }
+}
+
+Output:
+Enter day number(1 to 7): 2
+Tuesday
+Wednesday
+Thrusday
+Friday
+
+The "break" keyword : As we've seen that all statements followed by the selected case label are executed. Now, to execute statements in a specific case only, use break keyword. The break keyword terminate the "switch" and "loop - for, while, do while" blocks.
+
+Edit:  Add break; at the end of each case.
+
+	case 3: printf("\nWednesday"); break;
+        case 4: 
+                printf("\nThrusday");
+                break;
+        .......
+
+Example: Input arithmetic operator and two values to perform appropriate operation.
+
+int result = 0;
+char ch = '*';
+int no1,no2,result;
+
+switch(ch)
+{
+  case '+': result = no1 + no2; break;
+  case '-': result = no1 - no2; break;
+  case '*': result = no1 * no2; break;
+  default: printf("Invalid operator!"); break;
+  case '/': result = no1 / no2; break;
+ }
+printf("\n%d",result);
+
+Example: Date validation using switch & if
+
+switch(month)
+{
+ case 1:
+ case 3:
+ case 5:
+ case 7:
+ case 8:
+ case 10:
+ case 12:
+          if(day>=1 && day<=31)
+              printf("\nValid");
+          else
+              printf("\nInvalid");
+          break;
+ case 4:
+ case 6:
+ case 9:
+ case 11:
+          if(day>=1 && day<=30)
+              printf("\nValid");
+          else
+              printf("\nInvalid");
+          break;
+ case 2:
+          if(year%4==0 && day>=1  && day<=29)
+             printf("\nValid");
+          else
+          if(year%4!=0 && day>=1  && day<=28)
+             printf("\nValid");
+          else
+             printf("\nInvalid");
+          break;
+ default:
+          printf("\nInvalid");
+          break;
+ }
+
+public class Sample {
+  public static void main(String []args) {
+     
+  }
+}
+
+The goto statement
+-------------------
+
+Example: Day of year 

@@ -1,0 +1,111 @@
+1. Display all rows and all columns of table Installment.
+
+select * from installment;
+
+2. Display all rows and selected columns of table Installment.
+
+select Loan_no, Inst_no from installment;
+
+3. Display selected rows and selected columns of table Account.
+
+select acc_no,Name,balance from account where balance>=10000;
+
+Or
+
+select acc_no,Name,balance from account where loan_taken='Yes';
+
+select * from account where city = 'Mehsana';
+
+
+4. Display selected rows and all columns of table loan.
+
+select * from loan where load_date = '18-MAY-04';
+
+
+5. Show the structure of the table loan, account and installment.
+
+desc loan
+
+desc account
+
+desc installment
+
+6. Change the name ‘patel jigar’ to ‘patel hiren’ in Account Table.
+
+update account set name = 'Patel Hiren' where name = 'Patel Jigar';
+
+7. Change the name and city where account number is A005.
+
+(new name = ‘kothari nehal’ and new city = ‘patan’).
+
+update account set name='Kothari Nehal', city='Patan' where acc_no='A005';
+
+8. Display only those records where loan taken status is ‘YES’.
+
+select * from account where loan_taken='Yes';
+
+9. Add the new column (address varchar2 (20)) into table ACCOUNT.
+
+ALTER TABLE account ADD address varchar2(20);
+
+10. Create another table ACCOUNT_TEMP (acc_no, name, balance) from
+table ACCOUNT.
+
+create table account_temp select    acc_no, name,   balance from account;
+
+
+11. Delete the records whose account no is A004.
+
+delete from account where acc_no = 'A004';
+
+12. For each loan holders Increase the interest rate 2% (Loan table).
+
+update loan set interest_rate = interest_rate + 2;
+
+13. Create another table LOAN_TEMP (loan_no, Acc_no, loan_amt, loan_date) from The table LOAN.
+
+create table loan_temp   select loan_no, Acc_no, loan_amt, loan_date from loan;
+
+14. Display only those records where loan holder taken a loan in month of
+January(Loan table).
+
+select * from loan where to_char(loan_date,'MON') = 'JAN';
+
+15. Change the Inst_Date ‘2-Feb-04’ to ’3-Mar-04’
+
+update installment set inst_date = '3-MAR-04' where inst_date ='2-FEB-04'
+
+16. Modify the structure of table LOAN by adding one column credit_no
+varchar2 (4) (Loan table).
+
+ALTER TABLE LOAN Add credit_no varchar2(4);
+
+17. Increase the size 5 to 7 of column acc_no (Loan table).
+
+ALTER TABLE LOAN modify (acc_no varchar(7));
+
+18. Display the Loan amount*2 of table LOAN.
+
+select loan_amt*2 from loan;
+
+
+19. Change the amount 15000 to 5000 where loan number is L001. (Loan table).
+
+update load set loan_amt = 5000 where loan_no='L001';
+
+20. Create another table TRANS_TEMP by change the column name acc_no to account_no.
+
+create table trans_temp (account_no, name) select acc_no, name from account;
+
+21. Display loan_no, amount of Installment table by date wise.
+
+select loan_no,amount from installment order by inst_date;
+
+22. Select all the records of account table in descending order (account number wise).
+
+select * from account order by acc_no desc;
+
+23. Delete a table Installment.
+
+delete from installment;
+

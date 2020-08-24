@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+  int nos[] = {10,20,30,40,50};
+
+  for(int i=0;i<5;i++) 
+  {
+    printf("\n%d",nos[3]);
+  }
+  return 0;
+}
+
+adatapost@gmail.com

@@ -1,0 +1,873 @@
+Operating System (Windows, Linux, MacOS, Unix, Solaris etc) -- What about OS? What it is?
+---------------------------
+
+-> It is a kind of "system" software - a software that initialize the hardware.
+
+-> The OS is used for number of purposes including following:
+    -> Process/Program management - To start, stop, resume, abort, shutdown the process.
+    -> Memory management - To provide RAM to the running program.
+    -> It provides user-interface (Graphics or Command line)
+    -> Disk management - Harddisk, CR/DVD, USB etc
+    -> It provide "library" of "datatypes/functons" -- In other words it is called "API -        Application Programming Interface (Library).
+
+[Note: The OS is responsible for everything]
+
+Computer languages and roles
+----------------------------
+
+Language is a medium between two entities. Languages allow us to author (write) the code in very own syntax/grammer. Computer languages uses "English like" language. These languages are called "High" level languages because instructions & data expressed via English language.
+
+
+The language of OS/Hardware is "Native or Machine", which is written using "binary pattern" as well as pseudo pattern, is called "Low Level" language because binary pattern is used for "instructions & data".
+
+For example:
+
+ C Language  
+ Source              
+  Program                   
+  (hello.c)	
+    |
+    V
+  Compiler
+  (Translates source program to 
+   native code)
+    |
+    V
+   Native code Or Object Code/Program
+   (hello.exe)
+   
+
+ Program: Means set of data & instructions
+ Source Program: A program that is written by the developer using computer languages.
+ Object Program: A program that contains instructions in "Native" language.
+
+Translators -- computer languages
+----------------------------------
+
+There are two types of "translators or computer languages". 
+ 1. Compiler languages and 
+ 2. Interpreter languages
+
+Compiler languages are C,C++, Java, C#, VB.NET etc
+
+Interpreter languages are JavaScript, PHP, Python etc
+
+Compiler Vs Interpreter
+-----------------------
+
+Compiler -> It examines syntax of whole source program at a time.
+         -> It produces "object program or native code" of entire source program if source 
+            program is error free. Compiled code is stored into ".exe" or ".obj" or ".lib" files.
+         -> It lists the errors if source program has syntax errors.
+
+Interpreter -> It examines syntax of first line of source program.
+            -> It produces an object code of that particular line if it is error free and
+               pass this object code to the OS for run/execution.
+            -> It halts the interpretation and display error if there is syntax error.
+            -> The interpreter then read next statement and process as above.
+
+Language basics
+---------------
+
+Data : Data is plural of "Datum". Alphabets, digits, facts, figures are called data.
+----    e.g "Grt" "Ram" "10" 232 55.343 ^$#%#@@$# 
+
+Information:  "Processed" data is called information. Or "Data" is raw material of information.
+------------
+
+File: File is an address of the data stored into "disk" or "usb" or "cd/dvd" etc.
+----
+
+      Each & every device in computer is a file.
+
+
+Charset / Character set  (To form the Data)
+------------------------
+Any computer system must have aleast two types of "charsets".
+  1. ANSI charset (English language charset) - Total 256 characters to form the data and 
+     -> ANSI uses 7 bits  (1 Byte = 8 bits)
+  2. Unicode charset (English as well as Non-English charset) - Total 65536 characters
+     -> Unicode uses 16 bits (2 Bytes) or more. 
+     -> Unicode scheme is also known as "Universal Text Format - UTF".
+    
+
+   ANSI Characters or ANSI Charset -- each char in ANSI is identified with a unique integer
+   value called "ANSI Code".
+
+ANSI	ANSI
+Code	Char  (Hold down Alt + any numeric value between 0 to 255)
+------------
+0	(nul) \0
+1  	☺
+2	☻
+3	♥           
+4	♦
+..
+..
+7	Beep \Bell \a
+8	\b - backspace
+9	\t (horizontal tab)
+..
+13	\r  (Carriage Return/Enter key)
+..
+32	spacebar
+..
+48	0
+49	1
+50	2
+..
+65	A 
+66	B
+..
+97	a
+98	b
+..
+180	↕
+205	═
+255	blank
+--------
+Total 256 characters.
+
+Why ANSI has 256 characters -- why no more or no less?
+------------------------------
+
+Because "a byte, is a memory measurement unit". A byte can store minimum  value 0 and maximum value 255.
+    
+  7   6   5   4  3    2   1   0
+|---|---|---|---|---|---|---|---|
+|   |   |   |   |   |   |   |   |   
+|---|---|---|---|---|---|---|---| 
+( 1 Byte = 8 Bits ( (Bi)nary Digi(ts) ) )
+
+  (Binary equivalent)               of Decimal
+ 0    0   0   0   0   0   0   0     =  0
+ 1    1   1   1   1   1   1   1     =  255
+ 
+ C Language (and almost all languages) supports:
+     1. Digits 0-9
+     2. Alphabets A-Z, a-z
+     3. Whitespaces - \n (newline),
+                      \r (enter key)
+                      \b (backspace)
+                      ' ' spacebar
+                       \t Horizontal tab
+                       and many more 
+     4. Special characters or punctutation mark , . " ' ( ) [ ] { } etc
+
+  Note: Computer language don't support "Control Characters or Non-Printable characters.  
+         For example,  £ ▓ ☻ are unsupported by languages.
+
+Words
+======
+
+C Language supports two types of "Words":
+
+  1. Keywords - Reserved words of language
+              - Must be written in lowercase (small letter)
+              - Keywords are special instructions of a language and we cannot change their
+                meaning.
+
+                 Example: C Language has 32 standard keywords and 7 non-standard keywords.
+                          if, while, int, char, float, void, for, struct etc are keywords.
+
+  2. Identifiers - User defined words.
+                 - Words which are not keywords are called "Identifiers".
+                 - Name of variable, function, array, struct, union etc are example of 
+		   "Identifiers".
+             
+                    Naming Rules of Identifiers
+                    ----------------------------
+                    1. It must begins with alphabets or underscore
+                    2. It must includes any char from A-Z, a-z, 0-9 and _ (underscore).
+                    3. It must not a keyword.
+                    4. Whitespaces/spaces are not allowed.
+                    5. Lenght of identifier has no restriction.
+
+	Que: which of the following identifiers are invalid?
+
+              10_raj = Invalid
+              Int    = Valid
+              _1     = Valid
+              __2    = Valid
+              __2__  = Valid
+              _2+4_  = Invalid
+              A  B   =  Invalid
+              A_B    =  Valid
+Tokens
+======
+
+   Words & synbols used in language as instruction is called "Token".
+
+   e.g. { } ( ) [ ] keywords identifiers
+
+
+C Standard Library
+===============================================================
+
+ Function? A function is a small independent program.
+ =========
+
+
+C Standard library is collection of over (approximate) 500 functions. 
+
+C Standard library contains "pre-compiled" function code into .lib or .dll files and prototypes
+(syntax model) are saved into .h files. We will call .h files as "Header" files.
+
+
+       C Programmer will use C Standard library functions via 
+       Headers (Prototypes)
+       --------------------------------------------------------
+         [stdio.h]  [stdlib.h]  [maths.h] [string.h] [io.h] and many more
+            |           |          |          |        |
+            \           |          |          |        /
+             \          |          |          |       /
+              \         |          |          |      /
+               |-------------------------------------|
+                                   |
+                                   |
+                        .lib or .dll (Pre-compiled code of C Standard functions)
+ 
+    Note: DLL stands for Dynamic Link Library
+          LIB stands for Library
+
+What is "Prototype" or Syntax Model of function?
+------------
+
+  A "prototype" helps the developer and compiler for the same purposes:
+      1. It explains the name & nature of function
+      2. It describes the syntax.
+
+  A "prototype" of function is also known as "Function Declaration".
+
+
+   For example, 
+ 
+         Are following correct ways to use printf() function?
+
+               1. printf(10);
+               2. printf('H');
+               3. printf("Hello","World");
+               
+Datatypes Or Types Or Types System
+=========================================================================
+
+  What is DataType?
+
+     Ans: DataType describes the nature of data (structure of data) and capacity/range of
+          data.
+
+  "When you have a problem think about Type/Datatype" -- In other words, when you write a
+  program, you're creating new datatypes. 
+
+  DataTypes are building blocks of software/programs/apps.
+ 
+  In C Language, we've three categories of datatypes:
+
+        1. Primitive or Fundamental Types -- Types which are exposed via hardware called 
+                                             primitive or fundamental types.
+        2. Derived Types -- Types which are extended from primitive types and user-defined types.
+
+        3. User-Defined Types -- Types which are created from the scratch using "Primitive",
+                                 "Derived" and "User-Defined" are called "User-Defined" Types.
+
+
+  1. Primitive Types (Primitives)
+      -> char
+      -> int
+      -> float
+      -> double 
+      -> void
+
+ 2. Derived Types
+
+      -> Array
+      -> Function
+      -> Pointer
+
+ 3. User-Defined Types
+
+       -> Structure (Regular & Bit Field)
+       -> Enum
+       -> Typedef
+
+        NOTE: Using primitives, derived and user-defined types, we can develop more complex Types.
+
+
+Primitive Types
+===========================================================================
+Primitive types are hardware dependent and we've five primitives:
+ 
+   1. char (1 byte for ANSI and 2 bytes for Unicode)
+   2. int  (Not Available -- for 32bits architecture it is 4 bytes long,
+                             for 64bits architecure it is 8 bytes long,
+			     for 16bits architecture it is 2 bytes long)
+   3. float (4 bytes)
+   4. double (8 bytes)
+   5. void   (Not Available --- as per architecture ---) 
+
+RAM Architecture
+----------------
+
+Operating system architecture (32bits, 64bits), uses "addressing" technique to uniquely identify the each byte -- here, each unique number assigned to each byte is called "Memory Address".
+
+
+|---------------------|  ..
+|---------------------|  ..
+|---------------------|  12 GB
+|---------------------|  ..
+|---------------------|  .. 
+|---------------------|   4 GB
+|---------------------|  ...
+|---------------------|  ...
+|---------------------|  1MB (1024*1024)
+|---------------------|  ..
+|---------------------|  1024 (1 KB)
+|---------------------|  ...
+|---------------------| 
+|---------------------| 
+|---------------------| 
+|--------10-----------|  100 or p    -- 101st byte
+|---------------------| 
+|---------------------| 
+|---------------------| ..
+|---------------------|  2
+|---------------------|  1      - 2nd byte
+|---------------------|  0      - 1st byte
+
+Note: Assume that dashed line is a byte and number written aside is called "Memory Address".
+
+ char p = 10; In figure, 100 is called memory address of an "object" where data "10" saved/stored.
+
+
+Variable - A variable is an alias of memory address where data are stored.
+
+            Or
+
+           It is a symbolic name of an object. An object has two ways to access 
+                         1. via memory address and
+                         2. via variable name
+
+
+Object - Allocated RAM or Reserved area of RAM is called an "Object".
+
+       For instance, char a; --- will create an object of 1 byte size
+ 
+                     int a <--- will create 4 bytes size object.
+
+How can we allocate memory?
+ Answer: By declaring variables. 
+
+ Allocation of RAM (memory) using variable declaration is called "Static allocation" of RAM.
+
+ Allocation of RAM using malloc, calloc, realloc and free functions is called "Dynamic allocation"
+ of RAM (Memory).
+ 
+ C Program Structure
+=============================================================
+A .c extension source file contains code in following sections:
+
+--------------------------
+| Section - 1 
+| File inclusion 
+|--------------------------
+| Second - 2
+| Global declarations of 
+|   entities (variables, functions, struct etc)
+|--------------------------
+
+
+Example:
+
+#include <stdio.h>         <--- Section - 1 - A file inclusion
+
+int main()                  <--- Section - 2 - A system function "main()"
+{
+  
+}
+
+1. C language is a case-sensitive language.
+   That means upper & lower letters have different meanings.
+   For example,  int amount = 10; is different then,
+                 int Amount = 100; <--- we've two variables with different variable names.
+2. Keywords and function name must be written in lower letters.
+3. Semi-colon (;) is a statement terminator. e.g  int a = 10; int b = 20; 
+   In other words, semi-colon separates two statements. 
+4. Compiler Directives (Also called Preprocessors) must appear at begin of source code file. Any
+   statement begins with # is called "Compiler Directive" or "Preprocessor".
+   For example, #include <something.h>
+                #define  something
+   ** Never terminates (don't put semi-colon) after compiler directives.
+
+   Cmopiler directives means "Statements which are run or executed by the compiler".
+5. A program must have one and only one system "main()" function.
+6. A C function returns "int" value 0 by default and hence default return type of C function is    "int".
+7. A C function may takes as many as arguments by default. e.g printf("value",var1,var2,......)
+8. A pair of curly braces  { } defines a block of code. Opening { curly brace means begin of block
+   and } closing brace means end of block.
+9. Declarations can be placed inside the function as well as outside the functions.
+   What is declaration?
+        Answer: To inform the system about what the entity is.
+
+10. Expressions, statements, code blocks must be place inside the functions.
+
+The #include preprocessor
+-------------------------- 
+
+#include <stdio.h>  -- This statement loads/reads (Disk to RAM transfer) "stdio.h" from the                        "include" folder of C compiler and compiler uses the loaded prototype 
+                       of functions to compare the syntax of those functions which called/used
+			by the current program.
+
+
+main()
+{
+  printf(10);     <--- The compiler will display warning by comparing this syntax to  "loaded"
+			header file prototype.
+}
+
+Forms of #include:
+  1. #include <file.h> --- A "file.h" file will be located into "header" folder of C compiler
+  2. #include "file.h" --- A "file.h" file will be located into "current" folder where 
+				.c file is created.
+  3. #include "c:\\test\\new folder\\file.h"  --- file.h will be located at "c:\test\new folder"
+
+
+Header file
+-----------
+
+It contains source code that can be reuse in one or more other source code files.
+
+When we include "header" file, the #include <fileName> will copy the "fileName" into current source code file before the compilation take place.
+
+Escape Sequence OR Backslash Characters
+==============================================================================
+Backslash or escape sequence is begins with \ (backslash) character and it is expressed in "string" as well as a character.
+
+\a	Beep sound
+\n	Newline (To set cursor at begin of new line)
+\r	Enter Key (To set cursor at begin of current line)
+\t	Horizontal Tab (Move cursor eight spaces forward)
+\b	Backspace (move a cursor one position back)
+\\	Escape/remove the escape sequence - It means convert escape sequence to data.
+
+
+Example:
+
+#include <stdio.h>
+
+main()
+{
+    printf("\a");
+    printf("\nNo\tName\t\t\tAge");
+    printf("\n1\tRaj\t\t\t10");
+}
+
+
+Example: \r 
+
+#include <stdio.h>
+
+main()
+{
+    printf("Hello\rB");
+}
+
+Output:
+Bello
+
+Example: \b (Cursor set one position back)
+
+#include <stdio.h>
+
+main()
+{
+  printf("\nHello\b\b\b\bE");
+}
+Output:
+HEllo
+
+Example: Escape the backslash character (Convert backslash command to data)
+
+#include <stdio.h>
+
+main()
+{
+    printf("\nc:\new folder\test");
+    printf("\nc:\\new folder\\test");
+}
+
+Output:
+c:
+ew folder	est
+c:\new folder\test
+
+Example: Escape the double quotes. \"
+
+Output: The "red" sun
+
+#include <stdio.h>
+
+main()
+{
+  printf("The \"red\" sun");
+}
+
+Example: Output
+
+1.  
+|-----------------------------|
+|      C Programming!         |
+|-----------------------------|
+
+2. 
+/--------------------------\
+|     C Programming!       |
+|--------------------------|
+| Programming Practice!!!  |
+\--------------------------/
+
+
+Understand datatype, variable, and object (memory address)
+==================================================================
+
+Every variable we declare in a program, have an access of the created object via variable name or memory address.
+
+#include <stdio.h>
+
+main()
+{
+  int a,b,c;
+
+  printf("\n%d" , &a); 
+  printf("\n%d" , &b); 
+  printf("\n%d" , &c); 
+
+}
+
+Above code prints memory address of three integer objects :
+
+   665400  (approx)  (each is 4 bytes long) 
+   665396  
+   665392     
+
+& (Amphersand) address operator is used with variable to obtain memory address of  an object.
+
+Edit: Please use different datatype in place of "int" to examine the memory alignment.
+
+sizeof() operator to determine the size of datatype in bytes
+------------------------
+#include <stdio.h>
+main()
+{ 
+  printf("\n%d",sizeof(char));  // 1
+  printf("\n%d",sizeof(int));  // 4
+  printf("\n%d",sizeof(long));  // 8
+  printf("\n%d",sizeof(float));  // 4
+  printf("\n%d",sizeof(double));  // 8
+}
+
+Literal 
+--------
+
+Literal means fixed data/value or constant value. We will encounter following types of literals in various programming languages.
+
+1. Integer literal -- Any numeric value along with + or - operator is called integer literal.
+
+   Integer literal can be expressed as:
+
+         1. decimal e.g +10  or -93
+         2. octal - Use 0 (zero) prefix e.g 012 etc
+         3. hexadecimal  use 0x or 0X prefix. e.g 0xFF or 0x992
+  
+Example: In this example, we will assign integer value using decimal, octal and hexadecimal number system. Also we will use %d to print integer in decimal form,
+                         %o to print integer in octal form, and
+                         %x to print integer in hexadecimal form.
+
+#include <stdio.h>
+
+int main()
+{
+    int a = 10;
+    int b = 012;
+    int c = 0xA;
+
+    printf("\n%d  %d  %d",a,b,c);
+
+    a = 10;
+
+    printf("\n%d   %o    %x",a,a,a);
+    return 0;
+}
+
+Why a main() function returns 0?
+
+  Basically, each running program returns status code to its mother - an operating system (a program is a child of OS). Status code ZERO (0) means successfully shutdown, and non-zero means abnormal shutdown of a program. Based upon the status code, OS perform resource closing/cleaning (disk, RAM, audio, video, network) tasks.
+
+  In C language, default return type of a function is integer and return value is ZERO. 
+
+  It is good practice to returns 0 and also specify the return type --- int main() { return 0; }
+
+
+2. Long literal always uses L or l suffix
+
+   Integer family datatypes
+   -------------------------
+    
+    Name	Size(in bytes)	Range
+
+     	char		1	0 to 255 ( 0 to 2^8 - 1)
+	short		2 	0 to 65535 (0 to 2^16 - 1)
+	int		4	0 to 400 lakhs (4 GB) (0 to 2^32 - 1)
+	long		4/8	---
+	long long 	8 	0 to 2^64 - 1
+
+	10 <-- Integer 
+        10L <-- Long integer
+        10LL <--- Long long integer
+
+
+Following code will display "unwanted" result if LL suffix not used:
+  -> Because operation on two ints will produce int result. We make one of it as long long
+#include <stdio.h>
+
+int main()
+{
+    long long a = 100000000LL * 1000000;
+    printf("\n%lld",a);
+
+   return 0;
+}
+
+
+3. Character literal (also a integer) which uses single quote to enclose single character. 
+          e.g '3'
+              'ac' <-- Error
+4. String literal -- any value enclosed within double quotes is called string literal.
+	e.g "10"
+	    "Hello"
+	    ""
+            "10.10"
+     What is string? A string means group of characters enclosed in double quotes and 
+		     ended with '\0' (nul).
+
+
+4. floating point literals:
+
+     1. double literal -- any value with decimal point can be expressed as fixed decimal
+                          or exponent format (or scientific method).
+
+     e.g 10.10                1
+         1.010E+1 = 1.010 x 10
+         0.1010E+2  - 0.1010 x 100 = 10.10
+
+     2. float literal -- Use F or f suffix to create float literal
+
+           10.10  is double literal
+           10.10f is float literal
+  
+Example: Detemine the float or double literal size
+
+#include <stdio.h>
+
+main()
+{
+  printf("\n%d", sizeof(10.10f));  // 4 bytes
+  printf("\n%d", sizeof(10.10));   // 8 bytes
+
+  double no = 10.20;
+  printf("\nFixed format : %f",no);
+  printf("\nScientific/Exponential format : %e",no);
+}
+
+
+Example: Range of float & double value.
+
+ float value can be approx +- 1E+38
+ double value can be approx +- 1E+308
+
+#include <stdio.h>
+
+int main()
+{
+   float a = 1E38f;
+   double b = 1E308;
+
+   printf("\n%f",a);
+   printf("\n%f",b);
+   return 0;
+}
+
+Never use "float" type because double datatype has more accuracy.
+
+singed and unsigned modifiers
+=====================================================================
+
+What is modifier?
+   A modifier is a keyword to extends the meaning of existing keuword.
+  We've signed and unsigned modifiers which are used with "int" family types.
+
+   signed means positive & negative value.
+   unsigned means positive only.
+
+   signed char ch;  <--- positive + negative value
+   unsigned char ch; <--- Poistive value
+
+   signed is a default modifier for any int family type.
+   
+1 Byte = 8 bits = 1 sign bit (0 for positive 1 for negative) + 7 data bits 
+2 Bytes=16 bits = 1 sign bit + 15 data bits
+4 Bytes=32 bits = 1 sign bit + 31 data bits
+8 Butes=64 bits = 1 sign bit + 63 data bits
+
+For signed char (1 Byte)
+ 7   6   5   4   3   2   1   0
+2   2   2   2   2   2   2   2 
+128 64  32  16  8   4   2   1
+ 0   0   0   0  1   0   1   0  = 10            
+
+Sign
+Bit    -Data Bits-------
+0      0 0 0   0 0 0 0  = 0
+0      1 1 1   1 1 1 1  = 127     
+
+1      0 0 0   0 0 0 0  = -1
+1      1 1 1   1 1 1 1  = -1 - 127 = -128
+
+1      0 0 0   0 1 0 0  = -1 - 4 = -5  
+1      0 0 0   0 0 1 1  = -1 - 3 = -4
+
+
+
+For unsigned all bits are used as data bits.
+
+unsigned char, (1 Byte = 8 bits):
+
+0 0 0 0  0 0 0 0 = 0
+1 1 1 1  1 1 1 1 = 255  
+0 0 0 0  1 0 1 0 = 10
+1 0 0 0  1 0 1 0 = 138
+1 0 0 0  1 0 1 1 = 139
+
+
+Determine the range of signed & unsigned types
+====================================================
+
+1. char (or signed char) and unsigned char
+
+#include <stdio.h>
+
+int main()
+{
+  char ch = -100;  // signed char ch
+  unsigned char ch1 = -100;
+
+  printf("\n%d   %d",ch,ch1);  // -100   ????? (unexpected value)
+
+  ch = 127;
+  ch1 = 255;
+  printf("\n%d    %d",ch,ch1);  // 127  255
+ 
+ return 0;
+}
+
+2. ANSI code & char
+
+
+#include <stdio.h>
+
+int main()
+{
+  char ch = 65;
+  printf("\n%d   %c",ch,ch);  /// 65  A
+  ch = 'B';
+  printf("\n%d   %c",ch,ch);  /// 66  B
+}
+
+3. 
+
+#include <stdio.h>
+
+int main()
+{
+  char ch='A';
+  ch=ch+32;
+  printf("\n%d   %c",ch,ch);  // 97  a
+  ch=ch-32;
+  printf("\n%d   %c",ch,ch);  // 65 A
+  return 0;
+}
+
+4. 
+
+#include <stdio.h>
+
+int main()
+{
+  char ch = '1';
+  printf("\n%d   %c",ch,ch);  // 49  1
+  ch = 1;
+  printf("\n%d   %c",ch,ch);  // 1  ☺
+}
+
+5. signed short (-2^15 to 2^15 - 1) and unsigned short (0 to 2^16 -1)
+
+#include <stdio.h>
+
+int main()
+{
+  short no1 = 40000; // -32768 to 32767
+  unsigned short no2 = 40000;  // 0 to 65535
+  printf("\nsigned short : %d\nunsigned short : %d",no1,no2);
+}
+
+6. signed int or int and unsigned int 
+   signed long or unsigned long
+
+#include <stdio.h>
+
+int main()
+{
+  int no1 = 3000000;
+  unsigned int no2 = 3000000000;
+  printf("\n%d    %u",no1,no2);
+
+  long no3 = 8000000L;
+  unsigned long no4 = 800000000L;
+  printf("\n%ld    %lu",no3,no4);
+}
+
+Use %u format for unsigned int, %lu for unsigned long and %llu for unsigned long long.
+
+Use %d for signed int, %ld for signed long and %lld for signed long long
+
+
+7. long long capacity
+
+#include <stdio.h>
+
+int main()
+{
+   long long no1 = 100000000000000LL;
+   unsigned long long no2 = 3000000000000000000LLU;
+
+   printf("\n%lld",no1);
+   printf("\n%llu",no2);
+}
+ 
+8. float and double 
+
+#include <stdio.h>
+
+int main()
+{
+  float no1 = 10.10;
+  double no2 = 4E+30;
+
+  printf("\n%f",no1);
+  printf("\n%e",no1); //Scientification
+
+  printf("\n%f",no2);  //Fixed format
+  printf("\n%e",no2); //Scientification or exponent
+
+}
+
+

@@ -1,0 +1,303 @@
+Operators
+==============================================================
+
+Operators are "token" (symbols, keyword or special name) in C have one or more tasks/actions.
+
+In C, we've three categories of operators:
+  1. Unary -- Single operator operates single value/variable
+  2. Binary -- Single operator operates two values/vars.
+  3. Teranary -- Two operators operates three values/vars. 
+          (Value or variable is also know as OPERANDS)
+
+Precendence (Priority/Rank):  It determines which operator in an expression will be executed first.
+
+Associativity: It determines in which direction (Left to Right and Right to Left) an expression executes.
+
+
+a = 10 + 5 + 3
+    L->  R
+    15
+L<--R
+
+Rank		Operator			Associativity
+----------------------------------------------------------------
+ 1		() []				L->R
+ 2 		Unary operators e.g + - ++ --
+		! sizeof			R->L
+ 3		* / %				L->R
+ 4		+ -				L->R
+ 5		> >= < <=			L->R
+ 6		==  !=				L->R
+ 7		&&  ||				L->R
+ 8		= (Assignment)			R->L
+		+= -= *= /= %=			
+ 9		Comma (,)			L->R
+
+1. Arithmetic operators + - * / %
+2. Assignment operator =
+3. Shorthand arithmetic operators += -= *= /= %=
+4. Relational operators == != >  >=  <  <=
+5. Logical/Booean operators && || !
+6. Bitwise operator & | ^ << >> ~
+7. Misc operators - sizeof, comma, pointer, member access, arrow  etc
+8. Conditional or Teranary operator  Syntax:  exp1 ? exp2 : exp3;
+
+Examples
+=========
+1. Evalute  a = 4 + 5 * 3   = 19
+                      2      2
+                 (a-b)     (a + b)
+   Evalute  b =  -----  x ---------
+                   a+b          3
+		               b 
+               =  (a-b)*(a-b)/(a+b) * (a*a+b)/(b*b*b)
+2. Assignment and shorthand artihemtic
+    
+     varName += expression
+
+     is equivalent to,
+
+     varName = varName + (expression)
+
+
+    a = 4;
+    a = a + 2
+    printf("\n%d",a);
+
+OR
+
+    a = 4;
+    a += 2;  // a = a + (2);
+    printf("\n%d",a); 
+
+
+
+3. 
+
+    a = 2 , b = 3;
+  
+    a *= b + 4;          // a = a * (b+4)
+    printf("\n%d",a);    
+
+4. % modulo can't be used with floating points
+
+   double no = 5.4;
+   duoble p = no % 2; <--error
+
+5. % modulo or remainder is used with int family types only.
+
+   printf("\n%d", 10 / 12);   // 10
+
+6. Relational expression evalutes boolean -- true or false. In C, ZERO (0) means FALSE and
+   NON-ZERO means TRUE.
+
+main()
+{
+  int a = 2, b = 3;
+  printf("\n%d", a==b);   // 0
+  printf("\n%d", a>b);    // 0
+  printf("\n%d", a<b);    // 1
+  printf("\n%d", a=b);    // 3
+  printf("\n%d", a==b);   // 1
+}
+
+7. Boolean/Logical operators && (and) and || (or) creates compond expression
+
+Exp1 && Exp2
+ T   &&  T     = T
+ T   &&  F     = F
+ F   &&  T     = F
+ F   &&  F     = F
+
+Exp1 || Exp2
+ T   ||  T     = T
+ T   ||  F     = T
+ F   ||  T     = T
+ F   ||  F     = F
+
+main()
+{
+  int day = 50;
+  
+  printf("\nIs valid day for the month Jan? : %d", day>=1 && day<=31);  // 0  
+  printf("\nIs valid day for the month Jan? : %d", day<1 || day>31);
+
+  char nationality='I', age = 17;
+  printf("\nCan vote? %d", nationality=='I' && age>=18);
+}
+
+8. Conditional operator - it has three expressions.
+
+    boolean_exp1 ? exp2 : exp3;
+
+    If boolean_exp1 is true then exp2 will be selected, exp3 will be otherwise.
+
+Find maximum & minimum amoung two ints.
+
+main()
+{
+  int a = 10, b = 6;
+  int max = a>b ? a : b;
+  int min = a<b ? a : b;
+  printf("\n%d  %d",max,min);
+}
+
+
+9. Print "ZERO", "NEGATIVE" or "POSITIVE" message as per the value of int object.
+
+main()
+{
+  int no = -10;
+  no==0 ? printf("\nZERO") : no>0 ? printf("\nPOSITIVE") : printf("\nNEGATIVE");
+}
+
+
+10.
+
+#include <stdio.h>
+
+main()
+{
+  char ch;
+  printf("Enter the characters : ");
+  scanf("%c",&ch);
+
+  ch>='a' && ch<='z' || ch>='A' && ch<='Z' ? printf("\nAlphabet") : printf("\nNon Alphabet");
+}
+
+Dry Run
+---------------
+
+c       c>='A' && c<='Z' || c>='a' && c<='z'
+
+'t'	false || true 
+        true
+
+'6'     false || false
+         false
+
+'+'	false || false
+         false
+
+ch>='a' && ch<='z' || ch>='A' && ch<='Z' ? printf("\nAlphabet") :  ch>='0' && ch<='9' ? printf("Digit") : ch==' ' || ch=='\n' || ch=='\t' || ch=='\b' ? printf("Whitespace") : printf("Symbol");
+  
+
+Increment & Decrement operators -- ++
+-----------------------------------
+++ - To add 1 value to the variable 
+-- - To subtract value 1 from the variable
+
+We've two types of operators postfix and prefix incr/decr operators:
+
+  varName++  = postfix or post increment
+  varName--  = postfix or post decrement
+  ++varName  = prefix or pre incr
+  --varName  = prefix or pre decr
+
+If post & pre are written as single expression then both have common result.
+
+#include <stdio.h>
+
+int main()
+{
+  int a = 10;
+  a++;               // single expression
+  printf("\n%d",a);
+  ++a;               //  single expression
+  printf("\n%d",a);  
+  a--;
+  printf("\n%d",a);
+  --a;
+  printf("\n%d",a);
+}
+
+If pre or post incr/decr used as part of expression then they have different usage:
+
+  For instance,
+
+   int a = 10, b;
+   b = a++;        // Post increment
+                   // Meaning of b = a++ is,
+                   // b = a;
+                   // a = a + 1;
+   printf("\n%d  %d",a,b);   // 11  10
+
+For pre incr:
+
+   int a = 10, b;
+   b = ++a;        // Pre increment
+                   // Meaning of b = ++a is,
+                   // 
+                   // a = a + 1;
+                   // b = a;
+   printf("\n%d  %d",a,b);   // 11  11
+
+Example: Input marks of five subjects (out of 100). Write a program to display a message "PASS", "FAIL" or "ATKT" based upon following conditions:
+   1. If student obtains below 35 marks in one or two subjects then display "ATKT"
+   2. If student fails in three or more subjects then display "FAIL"
+   3. Display "PASS" otherwise.
+
+#include <stdio.h>
+
+int main()
+{
+   int english, hindi, science, maths, gujarati;
+   int count = 0;
+
+   printf("Enter marks of five subjects : ");
+   scanf("%d%d%d%d%d", &english, &hind, &science, &maths, &gujarati);
+
+   count += english<35 ? 1 : 0;
+   count += hindi<35 ? 1 : 0;
+   count += science<35 ? 1 : 0;
+   count += maths<35 ? 1 : 0;
+   count += gujarati<35 ? 1 : 0;   
+   
+   count == 0 ? printf("PASS") : count>2 ? printf("FAIL") : printf("ATKT");
+}
+
+Example: Input electricity units consumed and calculate bill amount as per following conditions:
+
+	Units		Rate (per unit)
+	-------------------------------
+	1-100		Rs. 2.5
+        101-200         Rs. 3.5
+        201-300         Rs.5.25
+        301 and above   Rs. 7.00
+
+
+ch = ch>='a' && ch<='z' ? ch-32 : ch;
+printf("\n%c",ch);
+
+Or
+
+printf("\n%c", ch>='a' && ch<='z' ? ch-32 : ch);
+
+OR
+
+if(ch>='a' && ch<='z')
+   ch = ch -32;
+printf("\n%c",ch);
+
+'a' = 97 - 32 = 65 = 'A'
+'A' = 65 (65 + 32 = 97 = 'a')
+
+
+The sizeof() and comma (,) operators
+-------------------------------------
+
+sizeof keyword returns size in bytes of datatype or value.
+
+   Example:  printf("\n%d",sizeof(char));  // 1 byte
+             printf("\n%d",sizeof(1.0));   // 8 bytes (double literal)
+
+comma operator separate lists -- variables, expressions and parameters.
+
+  Example:   int a=2,b=4,c=a+b;
+             printf("\n%d  %d  %d",a,b,c);  // four parameters separated by comma
+             c = (a = 10, b = 30, a + b);
+             printf("\n%d",c); // 40
+
+
+
+  
