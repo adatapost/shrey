@@ -165,7 +165,33 @@ while(num>0)
 
 num	num>0	 r	
 342	true	2
+
 34	true	4
 3	true	3
 0	false
+
+Example: Input integer number and reverse it.
+ e.g 347  will be 743
+     12576 will be 67521
+    
+int r;
+int rev = 0;
+while(num>0)
+{
+  r = num % 10;  
+  num = num / 10;
+
+  rev = rev * 10 + r;
+}
+printf("\n%d",rev);
+
+num	num>0	 r	rev (rev = rev * 10 + r)
+342	true	2	2
+34	true	4	24
+3	true	3	243
+0
+
+Example: Program to input integer number and test a given number is prime number or not?
+	 (A number which is only divisible by itself and 1 is called prime number.
+		e.g 1 2 3 5 7 11 13  17  19  ...)
 
